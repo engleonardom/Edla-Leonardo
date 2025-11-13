@@ -1,89 +1,708 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Lista de Presentes - Edla e Leonardo</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<style>
-  body {
-    background-color: #ffffff;
-    font-family: 'Georgia', serif;
-    color: #2f4f2f;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  .frame {
-    border: 20px double #2f4f2f;
-    padding: 40px;
-    margin: 30px;
-    background: #fff;
-    box-shadow: 0 0 25px #2f4f2f;
-    border-radius: 20px;
-  }
-  h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 80px;
-    color: #2f4f2f;
-    text-shadow: 2px 2px 4px #b8860b;
-    margin-bottom: 10px;
-  }
-  h2 {
-    font-style: italic;
-    margin-top: 0;
-  }
-  ul {
-    list-style: none;
-    columns: 3;
-    padding: 0;
-  }
-  li {
-    padding: 4px;
-  }
-  .verse {
-    font-style: italic;
-    margin: 30px auto;
-    max-width: 600px;
-  }
-  .pix {
-    margin-top: 50px;
-  }
-  .pix p {
-    max-width: 500px;
-    margin: 10px auto;
-    font-style: italic;
-    color: #1b3a28;
-  }
-  img {
-    width: 200px;
-    height: 200px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Jornada - Edla e Leonardo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fbf8 0%, #e8f0e8 25%, #d8e8d8 50%, #e8f0e8 75%, #f8fbf8 100%);
+            color: #3a4a2a;
+            line-height: 1.7;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 15% 20%, rgba(120, 150, 100, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(100, 130, 80, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* APRESENTAÇÃO */
+        header {
+            text-align: center;
+            padding: 60px 0 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header-content {
+            background: rgba(255, 255, 255, 0.92);
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(80, 100, 70, 0.1);
+            position: relative;
+            border: 1px solid rgba(180, 200, 160, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .header-content::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(120, 150, 100, 0.1);
+            pointer-events: none;
+            border-radius: 8px;
+        }
+
+        .floral-corner {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #789664;
+            opacity: 0.6;
+        }
+
+        .corner-tl {
+            top: 15px;
+            left: 15px;
+        }
+
+        .corner-tr {
+            top: 15px;
+            right: 15px;
+        }
+
+        .corner-bl {
+            bottom: 15px;
+            left: 15px;
+        }
+
+        .corner-br {
+            bottom: 15px;
+            right: 15px;
+        }
+
+        .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: #556B2F;
+            margin-bottom: 8px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .couple-names::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6B8E23, transparent);
+        }
+
+        .wedding-date {
+            font-size: 1.2rem;
+            color: #6B8E23;
+            margin-bottom: 25px;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: #556B2F;
+            margin-bottom: 15px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: #6B8E23;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .decorative-border {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6B8E23, transparent);
+            margin: 30px auto;
+            width: 70%;
+        }
+
+        /* MENSAGEM */
+        .welcome-message {
+            margin: 50px 0;
+            position: relative;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            border: 1px solid rgba(180, 200, 160, 0.3);
+            padding: 40px 30px 30px;
+            box-shadow: 0 8px 25px rgba(80, 100, 70, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .floral-frame-top, .floral-frame-bottom {
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #789664;
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+        }
+
+        .floral-frame-top {
+            top: -10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0 15px;
+            display: inline-block;
+            transform: translateY(-50%);
+        }
+
+        .floral-frame-bottom {
+            bottom: -10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0 15px;
+            display: inline-block;
+            transform: translateY(50%);
+        }
+
+        .message-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            color: #556B2F;
+            font-size: 1.7rem;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .message-content p {
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+            color: #4a5a3a;
+        }
+
+        .message-content .signature {
+            text-align: right;
+            font-style: italic;
+            color: #6B8E23;
+            font-weight: 400;
+            margin-top: 25px;
+            font-size: 1.15rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* PIX */
+        .pix-section {
+            margin: 40px 0;
+            position: relative;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            border: 1px solid rgba(180, 200, 160, 0.3);
+            padding: 40px 30px 30px;
+            box-shadow: 0 8px 25px rgba(80, 100, 70, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .pix-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            color: #556B2F;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .pix-icon {
+            margin-right: 8px;
+        }
+
+        .pix-subtitle {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #556B2F;
+            font-size: 1.05rem;
+        }
+
+        .pix-info {
+            background: rgba(248, 252, 248, 0.8);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 1px solid rgba(200, 220, 180, 0.5);
+            box-shadow: 0 4px 12px rgba(80, 100, 70, 0.05);
+        }
+
+        .pix-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed rgba(100, 130, 80, 0.3);
+        }
+
+        .pix-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .pix-label {
+            font-weight: 500;
+            color: #556B2F;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+        }
+
+        .pix-value {
+            font-weight: 500;
+            color: #4a5a3a;
+            font-size: 1.05rem;
+        }
+
+        .pix-note {
+            font-style: italic;
+            color: #6B8E23;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* PRESENTES */
+        .gifts-intro {
+            text-align: center;
+            margin: 50px 0 30px;
+            color: #556B2F;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            border: 1px solid rgba(180, 200, 160, 0.3);
+            box-shadow: 0 8px 25px rgba(80, 100, 70, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .gifts-intro::before, .gifts-intro::after {
+            content: "❀";
+            position: absolute;
+            color: #789664;
+            font-size: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .gifts-intro::before {
+            left: 15px;
+        }
+
+        .gifts-intro::after {
+            right: 15px;
+        }
+
+        .category {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(80, 100, 70, 0.1);
+            border: 1px solid rgba(180, 200, 160, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(80, 100, 70, 0.15);
+        }
+
+        .category::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(120, 150, 100, 0.1);
+            pointer-events: none;
+            border-radius: 8px;
+        }
+
+        .category-title {
+            color: #556B2F;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(180, 200, 160, 0.5);
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        .category-title::before {
+            content: "❁";
+            margin-right: 12px;
+            font-size: 1.3rem;
+            color: #6B8E23;
+        }
+
+        .gift-list {
+            list-style-type: none;
+        }
+
+        .gift-item {
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(160, 180, 140, 0.5);
+            position: relative;
+            padding-left: 28px;
+            transition: all 0.3s ease;
+            color: #4a5a3a;
+        }
+
+        .gift-item:hover {
+            color: #556B2F;
+            padding-left: 32px;
+        }
+
+        .gift-item:before {
+            content: "•";
+            color: #6B8E23;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .gift-item:hover:before {
+            transform: scale(1.5);
+            color: #556B2F;
+        }
+
+        .gift-item:last-child {
+            border-bottom: none;
+        }
+
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            margin-top: 60px;
+            color: #556B2F;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            border: 1px solid rgba(180, 200, 160, 0.3);
+            box-shadow: 0 8px 25px rgba(80, 100, 70, 0.1);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(120, 150, 100, 0.1);
+            pointer-events: none;
+            border-radius: 8px;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-floral {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #789664;
+            opacity: 0.6;
+        }
+
+        .floral-1 {
+            top: 15px;
+            left: 15px;
+        }
+
+        .floral-2 {
+            top: 15px;
+            right: 15px;
+        }
+
+        .floral-3 {
+            bottom: 15px;
+            left: 15px;
+        }
+
+        .floral-4 {
+            bottom: 15px;
+            right: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .couple-names {
+                font-size: 2.3rem;
+            }
+
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .category {
+                padding: 25px;
+            }
+
+            .header-content {
+                padding: 35px 25px;
+            }
+
+            .welcome-message, .pix-section {
+                padding: 30px 20px 20px;
+            }
+
+            .message-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .pix-section {
+                margin: 30px 0;
+            }
+
+            .pix-item {
+                flex-direction: column;
+            }
+
+            .pix-label {
+                margin-bottom: 5px;
+            }
+
+            .gifts-intro::before, .gifts-intro::after {
+                display: none;
+            }
+
+            .floral-frame-top, .floral-frame-bottom {
+                font-size: 1rem;
+                letter-spacing: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="frame">
-  <h1>Edla & Leonardo</h1>
-  <h2>10 de janeiro de 2026</h2>
+    <div class="container">
+        <!-- APRESENTAÇÃO -->
+        <header>
+            <div class="header-content">
+                <div class="floral-corner corner-tl">❀</div>
+                <div class="floral-corner corner-tr">❀</div>
+                <div class="floral-corner corner-bl">❀</div>
+                <div class="floral-corner corner-br">❀</div>
+                <h1 class="couple-names">Edla & Leonardo</h1>
+                <p class="wedding-date">10 de Janeiro de 2026</p>
+                <div class="decorative-border"></div>
+                <h2 class="title">Nossa Jornada de Amor</h2>
+                <p class="subtitle">Compartilhando o que realmente importa para construir nossa vida juntos</p>
+            </div>
+        </header>
 
-  <div class="verse">
-    “O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha.
-     Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor.
-     O amor não se alegra com a injustiça, mas se alegra com a verdade.
-     Tudo sofre, tudo crê, tudo espera, tudo suporta.”  
-    <br>– 1 Coríntios 13:4-7
-  </div>
+        <!-- MENSAGEM -->
+        <div class="welcome-message">
+            <div class="floral-frame-top">❀ ❀ ❀</div>
+            <div class="floral-frame-bottom">❀ ❀ ❀</div>
+            <div class="message-content">
+                <h3>O verdadeiro presente é compartilhar nosso amor</h3>
+                <p>Queridos familiares e amigos,</p>
+                <p>Enquanto preparamos nossas vidas para se tornarem uma só, entendemos que o maior presente que podemos receber é o amor que nos cerca. Cada sorriso, cada abraço, cada momento compartilhado é o que verdadeiramente construirá nosso lar.</p>
+                <p>Os itens que listamos são apenas ferramentas que nos ajudarão a criar memórias - o café da manhã compartilhado, os jantares em família, as manhãs de domingo aconchegantes. O que realmente importa são os momentos de amor e cumplicidade que viveremos juntos.</p>
+                <p>Sabemos que um lar não se constrói com objetos, mas com paciência, compreensão, respeito e muito amor. É essa a base que queremos para nosso matrimônio.</p>
+                <p>Seu apoio e carinho são os presentes mais valiosos que poderíamos receber. Obrigado por fazerem parte da nossa história.</p>
+                <p class="signature">Com todo nosso amor,<br>Edla & Leonardo</p>
+            </div>
+        </div>
 
-  <h3>Lista de Presentes</h3>
-  <ul>
-    <li>Jogo de pratos</li><li>Conjunto de copos</li><li>Panela de pressão</li><li>Faqueiro inox</li><li>Aparelho de jantar</li><li>Tábua de corte</li><li>Liquidificador</li><li>Sanduicheira</li><li>Cafeteira elétrica</li><li>Jogo de lençóis</li><li>Edredom de casal</li><li>Conjunto de toalhas</li><li>Conjunto de panelas antiaderentes</li><li>Torradeira</li><li>Batedeira</li><li>Aspirador de pó</li><li>Ferro de passar</li><li>Ventilador de mesa</li><li>Relógio de parede elegante</li><li>Porta-retratos duplo</li><li>Vaso decorativo</li><li>Jogo americano</li><li>Taças de vinho</li><li>Jogo de fondue</li><li>Conjunto de travessas</li><li>Cortinas de sala</li><li>Tapete para sala</li><li>Kit organizador</li><li>Jogo de cama queen</li><li>Lençol térmico</li><li>Conjunto de almofadas</li><li>Cesto de roupa</li><li>Toalha de mesa bordada</li><li>Aparelho de jantar porcelana</li><li>Kit utensílios de cozinha inox</li><li>Conjunto de xícaras de chá</li><li>Jogo de panelas cerâmicas</li><li>Assadeira de vidro</li><li>Aparelho de fondue inox</li><li>Taças de champanhe</li><li>Centro de mesa</li><li>Cadeira de balanço</li><li>Relógio decorativo</li><li>Conjunto de vasos de cristal</li><li>Bandeja espelhada</li><li>Jogo de sobremesa</li><li>Jogo de travesseiros</li><li>Porta-vinhos</li><li>Decanter</li><li>Jogo de castiçais</li><li>Aparelho de jantar artesanal</li><li>Grill elétrico</li><li>Espremedor de frutas</li><li>Copo térmico</li><li>Cafeteira italiana</li><li>Kit de facas chef</li><li>Jogo de panelas premium</li><li>Aparelho de jantar completo</li><li>Robô aspirador</li><li>Conjunto de potes herméticos</li><li>Kit de especiarias</li><li>Conjunto de taças de cristal</li><li>Jogo de banho luxo</li><li>Tapete oriental</li><li>Pipoqueira elétrica</li><li>Chaleira elétrica</li><li>Panela elétrica multifuncional</li><li>Kit fondue chocolate</li><li>Conjunto de guardanapos bordados</li><li>Jogo de talheres dourados</li><li>Kit de churrasco</li><li>Cortador de legumes</li><li>Ralador multifuncional</li><li>Conjunto de tigelas</li><li>Travessa de porcelana</li><li>Jogo de panelas francesas</li><li>Panela wok</li><li>Aparelho de som ambiente</li><li>Luminária decorativa</li><li>Abajur de mesa</li><li>Quadro artístico</li><li>Relógio de parede clássico</li><li>Jogo de chá porcelana fina</li><li>Jogo de cama egípcio</li><li>Toalha bordada personalizada</li><li>Conjunto de panelas elétricas</li><li>Panela de arroz elétrica</li><li>Kit de sobremesas</li><li>Jogo de facas profissionais</li><li>Conjunto de cristais finos</li><li>Kit de velas aromáticas</li><li>Porta-joias</li><li>Jogo de copos coloridos</li><li>Conjunto de potes de vidro</li><li>Espelho decorativo</li><li>Jogo de travessas refratárias</li><li>Conjunto de talheres de prata</li><li>Cadeira reclinável</li><li>Kit de utensílios para vinho</li><li>Cafeteira expresso</li><li>Panela elétrica de pressão</li><li>Jogo de cama king size</li><li>Toalhas egípcias</li><li>Tapete persa</li><li>Escultura decorativa</li><li>Vaso de cristal</li><li>Peça de arte em cerâmica</li><li>Jogo de pratos artesanais</li><li>Kit de mesa posta</li><li>Conjunto de guardanapos de linho</li><li>Taças lapidadas</li><li>Cristaleira</li><li>Cadeira estofada</li><li>Lustre de teto</li><li>Jogo de porcelana oriental</li><li>Relógio de mesa</li><li>Quadro paisagem natural</li><li>Pintura moderna</li><li>Jogo de taças de cerveja</li><li>Cadeira de balanço artesanal</li><li>Espelho veneziano</li><li>Aparelho de jantar luxo</li><li>Conjunto de panelas gourmet</li><li>Grill inteligente</li><li>Forno elétrico</li><li>Cooktop</li><li>Air fryer</li><li>Micro-ondas</li><li>Geladeira duplex</li><li>Máquina de lavar roupa</li><li>Secadora de roupas</li><li>TV Smart 65''</li><li>Sistema de som premium</li><li>Adega climatizada</li><li>Cama king deluxe</li><li>Poltrona de leitura</li><li>Mesa de jantar 6 lugares</li><li>Cristaleira imperial</li><li>Sofá reclinável</li><li>Lustre de cristal</li><li>Tapete artesanal grande</li><li>Roupão de banho luxo</li><li>Lençol 600 fios</li><li>Kit de travesseiros anatômicos</li><li>Abajur de cristal</li><li>Relógio de parede vintage</li><li>Jogo de sobremesas sofisticado</li><li>Escultura moderna</li><li>Peça decorativa de bronze</li><li>Jogo de talheres finos</li><li>Taças exclusivas</li><li>Painel decorativo</li><li>Conjunto de vasos japoneses</li><li>Quadro floral delicado</li><li>Cadeira de balanço clássica</li><li>Bandeja dourada</li><li>Espelho grande com moldura trabalhada</li><li>Centro de mesa dourado</li><li>Vaso verde-musgo</li><li>Aparelho de chá vintage</li><li>Tapete de lã natural</li><li>Conjunto de porcelanas finas</li><li>Relógio dourado de parede</li><li>Quadro abstrato</li><li>Lustre de bronze</li><li>Conjunto de almofadas bordadas</li><li>Jogo de guardanapos de seda</li><li>Cortina de linho</li><li>Jogo de cama bordado</li><li>Porta-joias de cristal</li><li>Vaso de porcelana chinesa</li><li>Quadro com moldura dourada</li><li>Peça de decoração barroca</li><li>Conjunto de pratos finos</li><li>Espelho com arabescos</li><li>Abajur de bronze</li><li>Escultura clássica</li><li>Relógio de pedestal</li><li>Mesa lateral dourada</li><li>Vaso artístico de vidro soprado</li><li>Peça ornamental italiana</li><li>Centro de mesa barroco</li><li>Aparelho de chá real</li><li>Cristaleira dourada</li><li>Cadeira estilo Luís XV</li><li>Tapete bordado manual</li><li>Lustre real em cristal</li><li>Relógio de chão</li><li>Conjunto de porcelanas raras</li><li>Taças artesanais</li><li>Peça central de prata</li><li>Aparelho de jantar imperial</li><li>Presente especial 193</li><li>Presente especial 194</li><li>Presente especial 195</li><li>Presente especial 196</li><li>Presente especial 197</li><li>Presente especial 198</li><li>Presente especial 199</li><li>Presente especial 200</li><li>Presente especial 201</li><li>Presente especial 202</li><li>Presente especial 203</li><li>Presente especial 204</li><li>Presente especial 205</li><li>Presente especial 206</li><li>Presente especial 207</li><li>Presente especial 208</li><li>Presente especial 209</li><li>Presente especial 210</li><li>Presente especial 211</li><li>Presente especial 212</li><li>Presente especial 213</li><li>Presente especial 214</li><li>Presente especial 215</li><li>Presente especial 216</li><li>Presente especial 217</li><li>Presente especial 218</li><li>Presente especial 219</li><li>Presente especial 220</li><li>Presente especial 221</li><li>Presente especial 222</li><li>Presente especial 223</li><li>Presente especial 224</li><li>Presente especial 225</li><li>Presente especial 226</li><li>Presente especial 227</li><li>Presente especial 228</li><li>Presente especial 229</li><li>Presente especial 230</li><li>Presente especial 231</li><li>Presente especial 232</li><li>Presente especial 233</li><li>Presente especial 234</li><li>Presente especial 235</li><li>Presente especial 236</li><li>Presente especial 237</li><li>Presente especial 238</li><li>Presente especial 239</li><li>Presente especial 240</li><li>Presente especial 241</li><li>Presente especial 242</li><li>Presente especial 243</li><li>Presente especial 244</li><li>Presente especial 245</li><li>Presente especial 246</li><li>Presente especial 247</li><li>Presente especial 248</li><li>Presente especial 249</li><li>Presente especial 250</li><li>Presente especial 251</li><li>Presente especial 252</li><li>Presente especial 253</li><li>Presente especial 254</li><li>Presente especial 255</li><li>Presente especial 256</li><li>Presente especial 257</li><li>Presente especial 258</li><li>Presente especial 259</li><li>Presente especial 260</li><li>Presente especial 261</li><li>Presente especial 262</li><li>Presente especial 263</li><li>Presente especial 264</li><li>Presente especial 265</li><li>Presente especial 266</li><li>Presente especial 267</li><li>Presente especial 268</li><li>Presente especial 269</li><li>Presente especial 270</li><li>Presente especial 271</li><li>Presente especial 272</li><li>Presente especial 273</li><li>Presente especial 274</li><li>Presente especial 275</li><li>Presente especial 276</li><li>Presente especial 277</li><li>Presente especial 278</li><li>Presente especial 279</li><li>Presente especial 280</li><li>Presente especial 281</li><li>Presente especial 282</li><li>Presente especial 283</li><li>Presente especial 284</li><li>Presente especial 285</li><li>Presente especial 286</li><li>Presente especial 287</li><li>Presente especial 288</li><li>Presente especial 289</li><li>Presente especial 290</li><li>Presente especial 291</li><li>Presente especial 292</li><li>Presente especial 293</li><li>Presente especial 294</li><li>Presente especial 295</li><li>Presente especial 296</li><li>Presente especial 297</li><li>Presente especial 298</li><li>Presente especial 299</li><li>Presente especial 300</li>
-  </ul>
+        <!-- PIX -->
+        <div class="pix-section">
+            <div class="floral-frame-top">✿ ✿ ✿</div>
+            <div class="floral-frame-bottom">✿ ✿ ✿</div>
+            <div class="pix-content">
+                <h3><span class="pix-icon">🌿</span> Presentes via PIX</h3>
+                <p class="pix-subtitle">Se preferir nos presentear através de PIX, utilize os dados abaixo:</p>
+                <div class="pix-info">
+                    <div class="pix-item">
+                        <span class="pix-label">Chave PIX (Celular)</span>
+                        <span class="pix-value">(91) 98733-2844</span>
+                    </div>
+                    <div class="pix-item">
+                        <span class="pix-label">Nome</span>
+                        <span class="pix-value">Leonardo Melo de Mendonça</span>
+                    </div>
+                </div>
+                <p class="pix-note">Sua contribuição nos ajudará a construir nossa vida a dois e realizar nossos sonhos!</p>
+            </div>
+        </div>
 
-  <div class="pix">
-    <h3>Contribua com nosso Pix 💚</h3>
-    <p>Se desejar, você pode contribuir com nosso casamento via Pix. Sua generosidade é muito apreciada e fará nosso dia ainda mais especial!</p>
-    <p>Chave Pix: <strong>leeonardomeelo@gmail.com</strong></p>
-    <img src="pix_qrcode.png" alt="QR Code do Pix">
-  </div>
-</div>
+        <!-- PRESENTES -->
+        <div class="gifts-intro">
+            Se desejar nos presentear com algo material, aqui estão algumas sugestões
+        </div>
+
+        <section class="category">
+            <h2 class="category-title">Cozinha</h2>
+            <ul class="gift-list">
+                <li class="gift-item">Conjunto de jantar</li>
+                <li class="gift-item">Conjunto de pratos rasos 6pçs</li>
+                <li class="gift-item">Conjunto de pratos fundos 6pçs</li>
+                <li class="gift-item">Conjunto de taças de sobremesa</li>
+                <li class="gift-item">Conjunto de formas (quadradas ou redondas)</li>
+                <li class="gift-item">Conjunto de assadeiras</li>
+                <li class="gift-item">Jogo de xícaras</li>
+                <li class="gift-item">Jogo de talheres em inox</li>
+                <li class="gift-item">Conjunto de taças (vinho e água)</li>
+                <li class="gift-item">Conjunto de copos</li>
+                <li class="gift-item">Faqueiro completo</li>
+                <li class="gift-item">Aparelho de jantar e chá</li>
+                <li class="gift-item">Conjunto de panelas (inox, antiaderente ou cerâmica)</li>
+                <li class="gift-item">Frigideiras de tamanhos variados</li>
+                <li class="gift-item">Travessas de porcelana</li>
+                <li class="gift-item">Conjunto de potes herméticos para mantimentos</li>
+                <li class="gift-item">Conjunto de sobremesa</li>
+                <li class="gift-item">Cafeteira (elétrica, italiana)</li>
+                <li class="gift-item">Batedeira</li>
+                <li class="gift-item">Mixer ou processador de alimentos</li>
+                <li class="gift-item">Sanduicheira ou grill</li>
+                <li class="gift-item">Micro-ondas</li>
+                <li class="gift-item">Espremedor de frutas</li>
+                <li class="gift-item">Panela elétrica multifuncional</li>
+                <li class="gift-item">Bebedouro</li>
+                <li class="gift-item">Pipoqueira</li>
+            </ul>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">Sala e Decoração</h2>
+            <ul class="gift-list">
+                <li class="gift-item">Sofá</li>
+                <li class="gift-item">Porta-retratos</li>
+                <li class="gift-item">Estante ou prateleiras</li>
+                <li class="gift-item">Cortinas grandes</li>
+                <li class="gift-item">Espelhos decorativos</li>
+            </ul>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">Quarto</h2>
+            <ul class="gift-list">
+                <li class="gift-item">Jogo de cama (lençóis e fronhas)</li>
+                <li class="gift-item">Edredom</li>
+                <li class="gift-item">Colcha de cama</li>
+                <li class="gift-item">Travesseiros</li>
+                <li class="gift-item">Cortinas blackout</li>
+            </ul>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">Banheiro</h2>
+            <ul class="gift-list">
+                <li class="gift-item">Toalhas de banho e rosto (jogo completo)</li>
+                <li class="gift-item">Tapetes de banheiro</li>
+                <li class="gift-item">Lixeira inox</li>
+            </ul>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">Sala de Jantar e Bar</h2>
+            <ul class="gift-list">
+                <li class="gift-item">Toalha de mesa e trilho de mesa</li>
+                <li class="gift-item">Sousplats</li>
+                <li class="gift-item">Kit tábua de frios</li>
+                <li class="gift-item">Garrafa térmica (Café e água)</li>
+                <li class="gift-item">Jogo americano</li>
+            </ul>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">Lavanderia e Organização</h2>
+            <ul class="gift-list">
+                <li class="gift-item">Passadeira a vapor</li>
+                <li class="gift-item">Tábua de passar roupa</li>
+            </ul>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">Eletroeletrônicos e Tecnologia</h2>
+            <ul class="gift-list">
+                <li class="gift-item">Televisão Smart</li>
+                <li class="gift-item">Caixa de som Bluetooth</li>
+                <li class="gift-item">Ventilador de pé</li>
+            </ul>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">Presentes Financeiros e Experiências</h2>
+            <ul class="gift-list">
+                <li class="gift-item">Vale-viagem</li>
+                <li class="gift-item">Cotas para a lua de mel</li>
+                <li class="gift-item">Vale-compras em loja de departamentos</li>
+                <li class="gift-item">Jantar em restaurante especial</li>
+            </ul>
+        </section>
+
+        <footer>
+            <div class="footer-floral floral-1">❀</div>
+            <div class="footer-floral floral-2">❀</div>
+            <div class="footer-floral floral-3">❀</div>
+            <div class="footer-floral floral-4">❀</div>
+            <div class="footer-content">
+                <p>Obrigado por fazerem parte da nossa história de amor</p>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #6B8E23;">Com carinho, Edla & Leonardo</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
