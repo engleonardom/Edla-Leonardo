@@ -112,6 +112,7 @@
     /* Título Cartão: Inter */
     .titulo-pix { font-size: 1.25rem; color: var(--verde-musgo); display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; text-align: center; }
     .qrcode-container { margin: 18px 0; text-align: center }
+    /* CORRIGIDO: Removido o prefixo Img/ para buscar na mesma pasta */
     .qrcode-container img { width: 180px; height: 180px; border-radius: 8px; border: 1px solid var(--bege-quente); padding: 8px; background: var(--bege-champanhe) }
     /* Dados e Nota: Inter */
     .dados-pix { background: var(--bege-quente); padding: 12px; border-radius: 8px; margin-top: 6px; font-weight: 400; line-height: 1.6; text-align: justify; }
@@ -175,6 +176,7 @@
     /* Título Cores: Cormorant Garamond */
     .titulo-cores { font-family: var(--font-serif); font-size: 1.5rem; color: var(--verde-musgo); margin-bottom: 22px; font-weight: 600; }
     .cores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; max-width: 880px; margin: 0 auto }
+    /* CORRIGIDO: Removido o prefixo Img/ para buscar na mesma pasta */
     .cor-item { border: 1px solid var(--bege-quente); border-radius: 8px; overflow: hidden; background: var(--bege-champanhe); padding: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
     .cor-item img { width: 100%; height: 170px; object-fit: cover; border-radius: 6px }
 
@@ -224,6 +226,7 @@
     <h1 class="nomes-casal">Edla & Leonardo</h1>
     <p class="data-casamento">10 de Janeiro de 2026</p>
     <div class="divisao-elegante"></div>
+    <p class="subtitulo">Estamos prontos para este novo capítulo, e a presença de vocês já é o maior presente.</p>
 </header>
 
 <section class="secao-mensagem">
@@ -255,7 +258,7 @@
     <div class="cartao-pix">
         <h3 class="titulo-pix"><i class="fas fa-qrcode"></i> Presentes via PIX</h3>
         <div class="qrcode-container">
-            <img src="Img/qrcode.png" alt="QR Code PIX">
+            <img src="qrcode.png" alt="QR Code PIX">
         </div>
         <div class="dados-pix">
             <p>Nome: Leonardo Melo de Mendonça</p>
@@ -393,10 +396,10 @@
 <section class="secao-cores">
     <h3 class="titulo-cores">Sugestões de cores para os presentes</h3>
     <div class="cores-grid">
-        <div class="cor-item"><img src="Img/cor1.png" alt="Sugestão de Cor 1 - Branco"></div>
-        <div class="cor-item"><img src="Img/cor2.png" alt="Sugestão de Cor 2 - Bege Champanhe"></div>
-        <div class="cor-item"><img src="Img/cor3.png" alt="Sugestão de Cor 3 - Verde-Musgo Claro"></div>
-        <div class="cor-item"><img src="Img/cor4.png" alt="Sugestão de Cor 4 - Verde-Musgo Profundo"></div>
+        <div class="cor-item"><img src="cor1.png" alt="Sugestão de Cor 1 - Branco"></div>
+        <div class="cor-item"><img src="cor2.png" alt="Sugestão de Cor 2 - Bege Champanhe"></div>
+        <div class="cor-item"><img src="cor3.png" alt="Sugestão de Cor 3 - Verde-Musgo Claro"></div>
+        <div class="cor-item"><img src="cor4.png" alt="Sugestão de Cor 4 - Verde-Musgo Profundo"></div>
     </div>
 </section>
 
